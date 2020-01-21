@@ -1,8 +1,118 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: blueviolet;
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+
+li {
+  list-style-type: none;
+  line-height: 0.2;
+}
+
+#pickRace {
+  background-color: chocolate;
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "1 2"
+    "3 4"
+    "5 6"
+    "7 8"
+    "9 .";
+}
+#dragonborn {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "1 2"
+    "3 4"
+    "5 6";
+  border: 1px solid black;
+}
+
+#dwarf {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "1 2"
+    "3 4"
+    "5 6";
+  border: 1px solid black;
+}
+#elf {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "1 2"
+    "3 4"
+    "5 6";
+  border: 1px solid black;
+}
+#gnome {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "1 2"
+    "3 4"
+    "5 6";
+  border: 1px solid black;
+}
+#half-elf {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "1 2"
+    "3 4"
+    "5 6";
+  border: 1px solid black;
+}
+#half-orc {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "1 2"
+    "3 4"
+    "5 6";
+  border: 1px solid black;
+}
+#halfling {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "1 2"
+    "3 4"
+    "5 6";
+  border: 1px solid black;
+}
+#human {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "1 2"
+    "3 4"
+    "5 6";
+  border: 1px solid black;
+}
+#tiefling {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "1 2"
+    "3 4"
+    "5 6";
+  border: 1px solid black;
 }

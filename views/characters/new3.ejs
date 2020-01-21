@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Choose Proficiencies</title>
+  </head>
+  <body>
+    <h1><%= charClass.name %> Proficiency Choices</h1>
+    <h3>
+      <% charClass.proficiency_choices.forEach(function(c, i) { %>
+      <h2>Choose <%= numChoices[i].choose %> from the following list</h2>
+      <ul>
+        <%c.from.forEach(function(p) {%>
+        <li><%- p.name %></li>
+        <% }) %>
+      </ul>
+      <% }) %>
+    </h3>
+    <h3><%= charClass.starting_equipment %></h3>
+  </body>
+</html>
