@@ -1,4 +1,5 @@
 const Character = require("../models/character");
+const User = require("../models/user");
 const axios = require("axios");
 const { inspect } = require("util");
 const data = require("../public/data");
@@ -124,8 +125,13 @@ const delChar = (req, res) => {
   console.log(req.params.id);
 };
 
-const all = (req, res) => {};
+const all = (req, res) => {
+  User.findById(req.params.id, (err, user) => {
+    console.log(user);
+    res.render("/character/index");
+  });
+};
 
 const show = (req, res) => {};
 
-module.exports = { new0, create, update, delete: delChar };
+module.exports = { new0, create, update, delete: delChar, all };
