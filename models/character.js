@@ -2,15 +2,20 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const characterSchema = new Schema({
-  name: { type: String, require: Boolean },
-  abilityScores: [{ type: Number }],
-  class: Object,
-  race: Object,
+  name: String,
+  eyeColor: String,
+  hairColor: String,
+  height: String,
+  weight: String,
+  age: Number,
+  race: String,
+  class: String,
+  abilityScores: Object,
+  savingThrows: Array,
+  languages: [{ type: String }],
   skills: [{ type: String }],
   proficiencies: [{ type: String }],
-  languages: [{ type: String }],
   features: Object,
-  level: Number,
   equipment: [{ type: String }]
 });
 

@@ -1,7 +1,29 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: blueviolet;
+  background-color: rosybrown;
+}
+
+.title {
+  text-align: center;
+}
+
+#abScores {
+  display: flex;
+  justify-content: space-between;
+}
+h3 {
+  text-align: center;
+}
+
+input {
+  height: 30px;
+  text-align: center;
+}
+
+button {
+  height: 50px;
+  width: 90px;
 }
 
 a {
@@ -16,16 +38,14 @@ li {
 #pickRace {
   background-color: chocolate;
   display: grid;
-  grid-template-columns: 2fr 2fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas:
-    "1 2"
-    "3 4"
-    "5 6"
-    "7 8"
-    "9 .";
+    "1 2 3"
+    "4 5 6"
+    "7 8 9";
 }
-#dragonborn {
+#Dragonborn {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
@@ -34,9 +54,10 @@ li {
     "3 4"
     "5 6";
   border: 1px solid black;
+  padding: 10px;
 }
 
-#dwarf {
+#Dwarf {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
@@ -45,8 +66,9 @@ li {
     "3 4"
     "5 6";
   border: 1px solid black;
+  padding: 10px;
 }
-#elf {
+#Elf {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
@@ -55,8 +77,9 @@ li {
     "3 4"
     "5 6";
   border: 1px solid black;
+  padding: 10px;
 }
-#gnome {
+#Gnome {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
@@ -65,8 +88,9 @@ li {
     "3 4"
     "5 6";
   border: 1px solid black;
+  padding: 10px;
 }
-#half-elf {
+#Half-Elf {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
@@ -75,8 +99,9 @@ li {
     "3 4"
     "5 6";
   border: 1px solid black;
+  padding: 10px;
 }
-#half-orc {
+#Half-Orc {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
@@ -85,8 +110,9 @@ li {
     "3 4"
     "5 6";
   border: 1px solid black;
+  padding: 10px;
 }
-#halfling {
+#Halfling {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
@@ -95,8 +121,9 @@ li {
     "3 4"
     "5 6";
   border: 1px solid black;
+  padding: 10px;
 }
-#human {
+#Human {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
@@ -105,8 +132,9 @@ li {
     "3 4"
     "5 6";
   border: 1px solid black;
+  padding: 10px;
 }
-#tiefling {
+#Tiefling {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
@@ -114,5 +142,154 @@ li {
     "1 2"
     "3 4"
     "5 6";
-  border: 1px solid black;
+  border: 0.5px solid black;
+  padding: 10px;
+}
+#pickClass {
+  background-color: chocolate;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "1 2 3"
+    "4 5 6"
+    "7 8 9"
+    "10 11 12";
+}
+
+#Barbarian {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 2fr;
+  grid-template-areas:
+    "1 2"
+    "3 4";
+  border: 0.5px solid black;
+  padding: 10px;
+}
+#Bard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 2fr;
+  grid-template-areas:
+    "1 2"
+    "3 4";
+  border: 0.5px solid black;
+  padding: 10px;
+}
+
+#Cleric {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 2fr;
+  grid-template-areas:
+    "1 2"
+    "3 4";
+  border: 0.5px solid black;
+  padding: 10px;
+}
+
+#Druid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 2fr;
+  grid-template-areas:
+    "1 2"
+    "3 4";
+  border: 0.5px solid black;
+  padding: 10px;
+}
+
+#Fighter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 2fr;
+  grid-template-areas:
+    "1 2"
+    "3 4";
+  border: 0.5px solid black;
+  padding: 10px;
+}
+
+#Monk {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 2fr;
+  grid-template-areas:
+    "1 2"
+    "3 4";
+  border: 0.5px solid black;
+  padding: 10px;
+}
+
+#Paladin {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 2fr;
+  grid-template-areas:
+    "1 2"
+    "3 4";
+  border: 0.5px solid black;
+  padding: 10px;
+}
+
+#Ranger {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 2fr;
+  grid-template-areas:
+    "1 2"
+    "3 4";
+  border: 0.5px solid black;
+  padding: 10px;
+}
+
+#Rogue {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 2fr;
+  grid-template-areas:
+    "1 2"
+    "3 4";
+  border: 0.5px solid black;
+  padding: 10px;
+}
+
+#Sorcerer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 2fr;
+  grid-template-areas:
+    "1 2"
+    "3 4";
+  border: 0.5px solid black;
+  padding: 10px;
+}
+
+#Warlock {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 2fr;
+  grid-template-areas:
+    "1 2"
+    "3 4";
+  border: 0.5px solid black;
+  padding: 10px;
+}
+
+#Wizard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 2fr;
+  grid-template-areas:
+    "1 2"
+    "3 4";
+  border: 0.5px solid black;
+  padding: 10px;
+}
+
+#inputForm {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }

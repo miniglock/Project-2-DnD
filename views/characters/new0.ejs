@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+    <title>Character Create</title>
+  </head>
+  <body>
+    <h1 class="title">Welcome to creating a new character!</h1>
+    <h3>
+      Over the next few pages this site will walk you through the process of
+      creating a brand new level 1 character! For now, just fill in the follwing
+      fields with the correct data and then press submit to get started.
+    </h3>
+    <div id="page1">
+      <form id="inputForm" action="/characters" method="POST">
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <input type="text" name="name" placeholder="Character Name" />
+              </td>
+              <td><input type="text" name="height" placeholder="Height" /></td>
+              <td><input type="text" name="weight" placeholder="Weight" /></td>
+            </tr>
+            <td>
+              <input type="text" name="eyeColor" placeholder="Eye Color" />
+            </td>
+            <td>
+              <input type="text" name="hairColor" placeholder="Hair Color" />
+            </td>
+            <td><input type="number" name="age" placeholder="Age" /></td>
+          </tbody>
+        </table>
+        <a href="/characters/#chooseRace">Next</a>
+    </div>
+    <h1 id='chooseRace' class="title">Choose a Race</h1>
+      <select name="race" id="raceSelector">
+        <% races.forEach(r => { %>
+        <option value="<%= r.name %>"><%= r.name %></option>
+        <% }) %>
+      </select>
+      <a href="/characters/#chooseClass">Next</a>
+
+    <div>
+      <div id="pickRace">
+        <% races.forEach(r => { %>
+        <div id="<%= r.name %>">
+          <div class="name"><%= r.name %></div>
+          <div class="speed"><%= r.speed %>ft</div>
+          <div class="abscore">
+            Ability Bonuses: <% r.ability_bonuses.forEach(a=>{ %>
+            <ul>
+              <li>
+                <%= a.name %> + <%= a.bonus %>
+              </li>
+            </ul>
+            <% }) %>
+          </div>
+          <div class="size"><%= r.size %></div>
+          <div class="languages">
+            Languages: <% r.languages.forEach(l=> { %>
+            <ul>
+              <li>
+                <%= l.name %>
+              </li>
+            </ul>
+            <% }) %>
+          </div>
+          <div class="startProf">
+            <% if (r.starting_proficiencies) { %> Starting proficiencies: <%
+            r.starting_proficiencies.forEach(p => { %>
+            <ul>
+              <li>
+                <%= p.name %>
+              </li>
+            </ul>
+            <% }) } %>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+      <h1 id='chooseClass' class="title">Choose a Class</h1>
+      <select name="class" id="classSelector">
+            <% classes.forEach(r => { %>
+            <option value="<%= r.name %>"><%= r.name %></option>
+            <% }) %>
+          </select>
+          <a href="/characters/#button">Next</a>
+      <div>
+        <div id="pickClass">
+          <% classes.forEach(c => { %>
+          <div id="<%= c.name %>">
+            <div class="name"><%= c.name %></div>
+            <div class="hitDie">Hit Die: <%= c.hit_die %></div>
+            <div class="savingThrows">
+              Saving Throws: <% c.saving_throws.forEach(a=>{ %>
+              <ul>
+                <li>
+                  <%= a.name %>
+                </li>
+              </ul>
+              <% }) %>
+            </div>
+            <div class="startProf">
+              Proficiencies: <% c.proficiencies.forEach(p => { %>
+              <ul>
+                <li>
+                  <%= p.name %>
+                </li>
+              </ul>
+              <% }) %>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+      <button id='button' type='submit'>Continue</button>
+</form>
+    </div>
+  </body>
+</html>

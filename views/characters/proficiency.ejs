@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+    <title>Choose Proficiencies</title>
+  </head>
+  <body>
+    <form action="/characters/<%= id %>?_method=PUT" method="POST">
+      <h1>Enter your Ability Scores here</h1>
+      <p>
+        In order to get your scores please roll 4d6 and drop the lowest number
+        for each ability score. The sum of the remainders will be entered into
+        the corresponding boxes
+      </p>
+      <div id="abScores">
+        <div id="str">
+          <input name="str" type="number" placeholder="str" />
+        </div>
+        <div id="dex">
+          <input name="dex" type="number" placeholder="dex" />
+        </div>
+        <div id="con">
+          <input name="con" type="number" placeholder="con" />
+        </div>
+        <div id="wis">
+          <input name="wis" type="number" placeholder="wis" />
+        </div>
+        <div id="int">
+          <input name="int" type="number" placeholder="int" />
+        </div>
+        <div id="cha">
+          <input name="cha" type="number" placeholder="cha" />
+        </div>
+      </div>
+      <% if (charRace.language_options) { %>
+      <h1><%= charRace.name %> Language Choices</h1>
+      <h3>
+        <h2>
+          Choose <%= charRace.language_options.choose %> from the following list
+        </h2>
+        <select name="language" id="languageSelector">
+          <%charRace.language_options.from.forEach(function(l) {%>
+          <option value="<%= l.name %>"><%= l.name %></option>
+          <% }) %>
+        </select>
+      </h3>
+      <% } if (charRace.trait_options) { %>
+      <h1><%= charRace.name %> Trait Choices</h1>
+      <h3>
+        <h2>
+          Choose <%= charRace.trait_options.choose %> from the following list
+        </h2>
+        <ul>
+          <%charRace.trait_options.from.forEach(function(p) {%>
+          <li><input name="<%= p.name %>" type="checkbox" /> <%- p.name %></li>
+          <% }) %>
+        </ul>
+      </h3>
+      <% } %> <% if (charRace.starting_proficiency_options) { %>
+      <h1><%= charRace.name %> Proficiency Choices</h1>
+      <h3>
+        <h2>
+          Choose <%= charRace.starting_proficiency_options.choose %> from the
+          following list
+        </h2>
+        <ul>
+          <%charRace.starting_proficiency_options.from.forEach(function(p) {%>
+          <li><input name="<%= p.name %>" type="checkbox" /> <%- p.name %></li>
+          <% }) %>
+        </ul>
+      </h3>
+      <% } %>
+      <h1><%= charClass.name %> Proficiency Choices</h1>
+      <h3>
+        <% charClass.proficiency_choices.forEach(function(c, i) { %>
+        <h2>
+          Choose <%= charClass.proficiency_choices[i].choose %> from the
+          following list
+        </h2>
+        <ul>
+          <%c.from.forEach(function(p) {%>
+          <li><input name="<%= p.name %>" type="checkbox" /> <%- p.name %></li>
+          <% }) %>
+        </ul>
+        <% }) %>
+      </h3>
+      <button id="button" type="submit">Continue</button>
+    </form>
+  </body>
+</html>

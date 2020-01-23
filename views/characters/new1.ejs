@@ -9,14 +9,23 @@
     <title>Choose a Race</title>
   </head>
   <body>
-    <h1>Choose a Race</h1>
+    <h1 class="title">Choose a Race</h1>
+    <form action="/characters" method="POST">
+      <select name="race" id="raceSelector">
+        <% races.forEach(r => { %>
+        <option value="<% r.name %>"><%= r.name %></option>
+        <% }) %>
+      </select>
+      <button type="submit">Next</button>
+    </form>
     <div>
       <div id="pickRace">
-        <div id="dragonborn">
-          <div class="name"><%=dragonborn.data.name%></div>
-          <div class="speed"><%=dragonborn.data.speed%>ft</div>
+        <% races.forEach(r => { %>
+        <div id="<%= r.name %>">
+          <div class="name"><%= r.name %></div>
+          <div class="speed"><%= r.speed %>ft</div>
           <div class="abscore">
-            Ability Bonuses: <%dragonborn.data.ability_bonuses.forEach(a=>{ %>
+            Ability Bonuses: <% r.ability_bonuses.forEach(a=>{ %>
             <ul>
               <li>
                 <%= a.name %> + <%= a.bonus %>
@@ -24,33 +33,9 @@
             </ul>
             <% }) %>
           </div>
-          <div class="size"><%=dragonborn.data.size%></div>
+          <div class="size"><%= r.size %></div>
           <div class="languages">
-            Languages: <%dragonborn.data.languages.forEach(l=> { %>
-            <ul>
-              <li>
-                <%= l.name %>
-              </li>
-            </ul>
-            <% }) %>
-          </div>
-          <div class="startProf">Starting Proficiencies: None</div>
-        </div>
-        <div id="dwarf">
-          <div class="name"><%=dwarf.data.name%></div>
-          <div class="speed"><%=dwarf.data.speed%></div>
-          <div class="abscore">
-            Ability Bonuses: <%dwarf.data.ability_bonuses.forEach(a=>{ %>
-            <ul>
-              <li>
-                <%= a.name %> + <%= a.bonus %>
-              </li>
-            </ul>
-            <% }) %>
-          </div>
-          <div class="size"><%=dwarf.data.size%></div>
-          <div class="languages">
-            Languages: <%dwarf.data.languages.forEach(l=> { %>
+            Languages: <% r.languages.forEach(l=> { %>
             <ul>
               <li>
                 <%= l.name %>
@@ -59,247 +44,17 @@
             <% }) %>
           </div>
           <div class="startProf">
-            Starting Proficiencies: <%
-            dwarf.data.starting_proficiencies.forEach(p=> { %>
+            <% if (r.starting_proficiencies) { %> Starting proficiencies: <%
+            r.starting_proficiencies.forEach(p => { %>
             <ul>
               <li>
-                <%=p.name%>
+                <%= p.name %>
               </li>
             </ul>
-            <% }) %>
+            <% }) } %>
           </div>
         </div>
-        <div id="elf">
-          <div class="name"><%=elf.data.name%></div>
-          <div class="speed"><%=elf.data.speed%></div>
-          <div class="abscore">
-            Ability Bonuses: <%elf.data.ability_bonuses.forEach(a=>{ %>
-            <ul>
-              <li>
-                <%= a.name %> + <%= a.bonus %>
-              </li>
-            </ul>
-            <% }) %>
-          </div>
-          <div class="size"><%=elf.data.size%></div>
-          <div class="languages">
-            Languages: <%elf.data.languages.forEach(l=> { %>
-            <ul>
-              <li>
-                <%= l.name %>
-              </li>
-            </ul>
-            <% }) %>
-          </div>
-          <div class="startProf">
-            Starting Proficiencies: <%
-            elf.data.starting_proficiencies.forEach(p=> { %>
-            <ul>
-              <li>
-                <%=p.name%>
-              </li>
-            </ul>
-            <% }) %>
-          </div>
-        </div>
-        <div id="gnome">
-          <div class="name"><%=gnome.data.name%></div>
-          <div class="speed"><%=gnome.data.speed%></div>
-          <div class="abscore">
-            Ability Bonuses: <%gnome.data.ability_bonuses.forEach(a=>{ %>
-            <ul>
-              <li>
-                <%= a.name %> + <%= a.bonus %>
-              </li>
-            </ul>
-            <% }) %>
-          </div>
-          <div class="size"><%=gnome.data.size%></div>
-          <div class="languages">
-            Languages: <%gnome.data.languages.forEach(l=> { %>
-            <ul>
-              <li>
-                <%= l.name %>
-              </li>
-            </ul>
-            <% }) %>
-          </div>
-          <div class="startProf">
-            Starting Proficiencies: None<%
-            gnome.data.starting_proficiencies.forEach(p=> { %>
-            <ul>
-              <li>
-                <%=p.name%>
-              </li>
-            </ul>
-            <% }) %>
-          </div>
-        </div>
-        <div id="half-elf">
-          <div class="name"><%=halfElf.data.name%></div>
-          <div class="speed"><%=halfElf.data.speed%></div>
-          <div class="abscore">
-            Ability Bonuses: <%halfElf.data.ability_bonuses.forEach(a=>{ %>
-            <ul>
-              <li>
-                <%= a.name %> + <%= a.bonus %>
-              </li>
-            </ul>
-            <% }) %>
-          </div>
-          <div class="size"><%=halfElf.data.size%></div>
-          <div class="languages">
-            Languages: <%halfElf.data.languages.forEach(l=> { %>
-            <ul>
-              <li>
-                <%= l.name %>
-              </li>
-            </ul>
-            <% }) %>
-          </div>
-          <div class="startProf">
-            Starting Proficiencies: None<%
-            halfElf.data.starting_proficiencies.forEach(p=> { %>
-            <ul>
-              <li>
-                <%=p.name%>
-              </li>
-            </ul>
-            <% }) %>
-          </div>
-        </div>
-        <div id="half-orc">
-          <div class="name"><%=halfOrc.data.name%></div>
-          <div class="speed"><%=halfOrc.data.speed%></div>
-          <div class="abscore">
-            Ability Bonuses: <%halfOrc.data.ability_bonuses.forEach(a=>{ %>
-            <ul>
-              <li>
-                <%= a.name %> + <%= a.bonus %>
-              </li>
-            </ul>
-            <% }) %>
-          </div>
-          <div class="size"><%=halfOrc.data.size%></div>
-          <div class="languages">
-            Languages: <%halfOrc.data.languages.forEach(l=> { %>
-            <ul>
-              <li>
-                <%= l.name %>
-              </li>
-            </ul>
-            <% }) %>
-          </div>
-          <div class="startProf">
-            Starting Proficiencies: <%
-            halfOrc.data.starting_proficiencies.forEach(p=> { %>
-            <ul>
-              <li>
-                <%=p.name%>
-              </li>
-            </ul>
-            <% }) %>
-          </div>
-        </div>
-        <div id="halfling">
-          <div class="name"><%=halfling.data.name%></div>
-          <div class="speed"><%=halfling.data.speed%></div>
-          <div class="abscore">
-            Ability Bonuses: <%halfling.data.ability_bonuses.forEach(a=>{ %>
-            <ul>
-              <li>
-                <%= a.name %> + <%= a.bonus %>
-              </li>
-            </ul>
-            <% }) %>
-          </div>
-          <div class="size"><%=halfling.data.size%></div>
-          <div class="languages">
-            Languages: <%halfling.data.languages.forEach(l=> { %>
-            <ul>
-              <li>
-                <%= l.name %>
-              </li>
-            </ul>
-            <% }) %>
-          </div>
-          <div class="startProf">
-            Starting Proficiencies: None<%
-            halfling.data.starting_proficiencies.forEach(p=> { %>
-            <ul>
-              <li>
-                <%=p.name%>
-              </li>
-            </ul>
-            <% }) %>
-          </div>
-        </div>
-        <div id="human">
-          <div class="name"><%=human.data.name%></div>
-          <div class="speed"><%=human.data.speed%></div>
-          <div class="abscore">
-            Ability Bonuses: <%human.data.ability_bonuses.forEach(a=>{ %>
-            <ul>
-              <li>
-                <%= a.name %> + <%= a.bonus %>
-              </li>
-            </ul>
-            <% }) %>
-          </div>
-          <div class="size"><%=human.data.size%></div>
-          <div class="languages">
-            Languages: <%human.data.languages.forEach(l=> { %>
-            <ul>
-              <li>
-                <%= l.name %>
-              </li>
-            </ul>
-            <% }) %>
-          </div>
-          <div class="startProf">
-            Starting Proficiencies: None<%
-            human.data.starting_proficiencies.forEach(p=> { %>
-            <ul>
-              <li>
-                <%=p.name%>
-              </li>
-            </ul>
-            <% }) %>
-          </div>
-        </div>
-        <div id="tiefling">
-          <div class="name"><%=tiefling.data.name%></div>
-          <div class="speed"><%=tiefling.data.speed%></div>
-          <div class="abscore">
-            Ability Bonuses: <%tiefling.data.ability_bonuses.forEach(a=>{ %>
-            <ul>
-              <li>
-                <%= a.name %> + <%= a.bonus %>
-              </li>
-            </ul>
-            <% }) %>
-          </div>
-          <div class="size"><%=tiefling.data.size%></div>
-          <div class="languages">
-            Languages: <%tiefling.data.languages.forEach(l=> { %>
-            <ul>
-              <li>
-                <%= l.name %>
-              </li>
-            </ul>
-            <% }) %>
-          </div>
-          <div class="startProf">
-            Starting Proficiencies: None<%
-            tiefling.data.starting_proficiencies.forEach(p=> { %>
-            <ul>
-              <li>
-                <%=p.name%>
-              </li>
-            </ul>
-            <% }) %>
-          </div>
-        </div>
+        <% }) %>
       </div>
     </div>
   </body>

@@ -3,20 +3,18 @@ const router = express.Router();
 const axios = require("axios");
 const charactersCtrl = require("../controllers/characters");
 
-router.get("/1", charactersCtrl.new1);
+// router.get("/1", charactersCtrl.proficiencies);
 
-router.get("/3", async (req, res) => {
-  const charClass = await axios(`http://dnd5eapi.co/api/classes/monk`);
-  console.log(charClass.data);
-  // console.log(charClass.data.proficiency_choices);
-  console.log("==============================================================");
-  // console.log(charClass.data.proficiency_choices[0]);
+// router.get("/2", charactersCtrl.new2);
 
-  res.render("characters/new3", {
-    charClass: charClass.data,
-    title: "Hello",
-    numChoices: charClass.data.proficiency_choices
-  });
-});
+// router.get("/proficiencies", charactersCtrl.proficiencies);
+
+router.get("/", charactersCtrl.new0);
+
+router.post("/", charactersCtrl.create);
+
+router.put("/:id", charactersCtrl.update);
+
+router.delete("/:id", charactersCtrl.delete);
 
 module.exports = router;
