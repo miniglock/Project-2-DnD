@@ -12,9 +12,6 @@ body {
   display: flex;
   justify-content: space-between;
 }
-h3 {
-  text-align: center;
-}
 
 input {
   height: 30px;
@@ -32,7 +29,6 @@ a {
 
 li {
   list-style-type: none;
-  line-height: 0.2;
 }
 
 #pickRace {
@@ -292,4 +288,15 @@ li {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+}
+
+#charDeets {
+  display: grid;
+  grid-auto-rows: min-content;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  grid-template-areas:
+    "1 2 3"
+    "4 5 6"
+    "7 8 9";
 }

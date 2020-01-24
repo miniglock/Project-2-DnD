@@ -34,7 +34,6 @@
             <td><input type="number" name="age" placeholder="Age" /></td>
           </tbody>
         </table>
-        <a href="/characters/#chooseRace">Next</a>
     </div>
     <h1 id='chooseRace' class="title">Choose a Race</h1>
       <select name="race" id="raceSelector">
@@ -42,8 +41,6 @@
         <option value="<%= r.name %>"><%= r.name %></option>
         <% }) %>
       </select>
-      <a href="/characters/#chooseClass">Next</a>
-
     <div>
       <div id="pickRace">
         <% races.forEach(r => { %>
@@ -88,7 +85,6 @@
             <option value="<%= r.name %>"><%= r.name %></option>
             <% }) %>
           </select>
-          <a href="/characters/#button">Next</a>
       <div>
         <div id="pickClass">
           <% classes.forEach(c => { %>

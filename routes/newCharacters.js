@@ -9,7 +9,13 @@ const charactersCtrl = require("../controllers/characters");
 
 // router.get("/proficiencies", charactersCtrl.proficiencies);
 
-router.get("/", charactersCtrl.new0);
+router.get("/", charactersCtrl.index);
+
+router.get("/new", charactersCtrl.new);
+
+router.get("/:id/edit", charactersCtrl.edit);
+
+router.get("/:id", charactersCtrl.show);
 
 router.post("/", charactersCtrl.create);
 
